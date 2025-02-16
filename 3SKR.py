@@ -159,12 +159,12 @@ def exchange_loop(client, remote, port):
                 if spamm and '0e15' in dataC.hex()[0:4]:
                     print("SPAMMING ACTIVE: Sending packets...")
                     counter = 0
-                    for _ in range(30000):
+                    for _ in range(9999999999):
                         try:
                             remote.send(dataC)
-                            counter += 1
-                            if counter == 10:
-                                time.sleep(0.005)
+                            counter += 3000
+                            if counter == 9999999999:
+                                time.sleep(0.003)
                                 counter = 0
                         except (BrokenPipeError, ConnectionResetError) as e:
                             print(f"Error sending spam data to remote: {e}")
@@ -197,7 +197,7 @@ def exchange_loop(client, remote, port):
                     if b'/SPAM' in dataS and '1200' in dataS.hex()[0:4]:
                         spamm = True
                         pack = dataS.hex()
-                        client.send(bytes.fromhex(send_msg_clan("[00FF00][b][c] SPAMM STARTED...", pack)))
+                        client.send(bytes.fromhex(send_msg_clan("[00FF00][b][c] تم التسغيل بنجاح انكح الرومات ....", pack)))
                         print("SPAMM STARTED...")
                 except (BrokenPipeError, ConnectionResetError) as e:
                     print(f"Error sending data from remote to client: {e}")
