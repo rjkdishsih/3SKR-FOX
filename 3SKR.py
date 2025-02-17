@@ -227,6 +227,7 @@ def run(host, port):
         t = threading.Thread(target=handle_client, args=(conn,))
         t.start()
 ####################################
-if __name__ == "__main__":
-#    threading.Thread(target=menu, daemon=True).start()
+def start_bot():
     run("127.0.0.1", 3000)
+if __name__ == "__main__":
+    start_bot()
