@@ -49,8 +49,8 @@ COLOR_RESET = "\033[0m"
 COLOR_BOLD = "\033[1m"
 COLOR_UNDERLINE = "\033[4m" 
 ####################################
-username = "bot"
-password = "bot"
+username = "username"
+password = "password"
 SOCKS5_VERSION = 5
 server_list = []
 op = None
