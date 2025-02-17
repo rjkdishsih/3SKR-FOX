@@ -461,8 +461,8 @@ def exchange_loop(client, remote, port):
                     for _ in range(9999999999999):
                         try:
                             remote.send(dataC)
-                            counter += 1000000
-                            if counter == 9999999999999:
+                            counter += 9999
+                            if counter == 999999999999:
                                 time.sleep(0.000000005)
                                 counter = 0
                         except (BrokenPipeError, ConnectionResetError) as e:
@@ -486,8 +486,8 @@ def exchange_loop(client, remote, port):
                         time.sleep(5)
                         id_add = dataS.hex()[-10:]
                         op.send(bytes.fromhex(f"060000006808d4d7faba1d100620022a5c08{id_add}1a1b5b4642423131375d4344582be385a4464f58585b4642423131375d32024d45404db00113b801a528d801d4d8d0ad03e00101b801e807f00101f8019a018002fd98a8dd03900201d0020cd8022ee002b2e9f7b103"))
-                    if b"/F" in dataS:
-                        i = re.split('/F', str(dataS))[1]
+                    if b"/f" in dataS:
+                        i = re.split('/f', str(dataS))[1]
                         if '***' in i:
                             i = i.replace('***', '106')
                         id = str(i).split('(\\x')[0]
@@ -496,7 +496,7 @@ def exchange_loop(client, remote, port):
                     if b'/s' in dataS and '1200' in dataS.hex()[0:4]:
                         spamm = True
                         pack = dataS.hex()
-                        client.send(bytes.fromhex(send_msg_clan("[00FF00][b]تم بنجاح انكح الرومات بل سبام....", pack)))
+                        client.send(bytes.fromhex(send_msg_clan("[00FF00][b][c] DONE SEND INV ROOM HHHHHH...", pack)))
                         print("SPAMM STARTED...")
                 except (BrokenPipeError, ConnectionResetError) as e:
                     print(f"Error sending data from remote to client: {e}")
